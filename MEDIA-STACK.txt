@@ -1,0 +1,18 @@
+𝙅𝙄𝙉𝙓 𝙆9 V1.0 MEDIA STACK
+========================
+
+This build is prepared for hosting panels where the bot owner cannot use a terminal.
+
+Media dependencies:
+- sharp 0.32.6 (pinned to match the known-working media stack)
+- wa-sticker-formatter 4.4.4
+- node-webpmux 3.1.1
+- ffmpeg-static 5.3.0
+
+Important:
+- sharp is pinned and forced through npm overrides so wa-sticker-formatter does not pull a different nested Sharp version.
+- package.json includes npm allowScripts approvals for native packages that need install-time scripts.
+- npm is instructed to include optional dependencies during 𝙅𝙄𝙉𝙓 𝙆9's automatic dependency repair.
+- No manual terminal commands are required on the hosting panel.
+
+The bot performs a media preflight at startup. If Sharp is missing/broken, 𝙅𝙄𝙉𝙓 𝙆9 attempts an automatic dependency repair and then continues only when the required media modules can be loaded.
